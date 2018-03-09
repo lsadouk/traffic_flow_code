@@ -1,14 +1,7 @@
-function net1 = cnn_init_our_model(next_pred_point)
-%code for Computer Vision, Georgia Tech by James Hays
-%% for w=10time points
-%net = load('result_data/data_D07_US101N_20by10_minP_R_1chan_NoWeigLoss_convs_1pt/net-epoch-15.mat') ;
-%net = load('result_data/data_D07_US101N10d_20by10_minP_R_1chan_WeigLossL0_convs_4pts/net-epoch-15.mat') ;
+function net1 = cnn_init_our_model(next_pred_point, lambda, test_freeway)
 
 %% for w=10time points
-%net = load(strcat('result_data/data_D07_US101N10d_20by10_minP_R_1chan_WeigLossL0N_convs_', next_pred_point,'pts/net-epoch-25.mat')) ;
-%net = load(strcat('result_data/data_D07_US101N10d_20by10_minP_R_1chan_WeigLossL1Nsigmoid_convs_', next_pred_point,'pts/net-epoch-25.mat')) ;
-net = load(strcat('result_data/data_D07_US101N10d_20by10_minP_R_1chan_WeigLossL0N_convs_', next_pred_point,'pts/net-epoch-25.mat')) ;
-%net = load('result_data/data_D07_US101N10d_20by10_minP_R_1chan_WeigLossL0N_convs_4pts/net-epoch-25.mat') ;
+net = load(strcat('result_data/data_',test_freeway,'_10by10_minP_R_1chan_WeigLossL',lambda,'N_convs_', next_pred_point,'pts/net-epoch-20.mat')) ;
 
 %%layers
 net.net.layers
