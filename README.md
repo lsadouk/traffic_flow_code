@@ -16,6 +16,10 @@ This readme is a brief overview and contains details for setting up and running 
 There are several two use cases for TFF with PLF:
 
 1. You can train and test Convolutional Neural Networks (CNNs) by going into 'traffic_flow_code_CNN/' directory and running the file 'proj_traffic_flow_prediction_10wStr.m'
+You can choose to train the CNN :
+- among different prediction time interval (5-, 10-, 15-, and 20-min forecasting)
+- with either the L2 Loss function (lambda=0) or the probabilistic loss function (lambda=1)
+- on different networks (freeways) such as H101_North_D7 / I5_North_D7 / I5_South_D7 / I5_North_D11 / I450_North_D7 / I210_West_D7 
 
 2. You can train and test Deep Belief Networks (DBNs) by going into 'traffic_flow_code_DBN/examples/' directory and running the file 'proj_traffic_flow_prediction_DBN.m'
 
