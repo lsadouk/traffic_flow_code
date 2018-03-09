@@ -7,7 +7,6 @@ next_pred_pt =input('Enter prediction point:  ','s'); %next_pred_pt = '6';
 %% Load Database --------------------------------------------------------------
 image_size = 10*10; % was 20*10;
 filename = strcat('traffic_images_H101_North_D7_',nb_days, 'days_',next_pred_pt, 'Pt_10wStr'); 
-imdb_filename = strcat('../traffic_flow_code/imdb_',filename,'_', opts.prediction_type,'.mat'); %imdb_classification_D07-US101N.mat
 imdb = setup_data(opts, kfold, filename,next_pred_pt);
 
 imdb.images.data = permute(imdb.images.data, [2 1 3 4]); % to 10x20x1xnb_inst 
@@ -37,5 +36,5 @@ conv = SVMModel.ConvergenceInfo.Converged;
 predictions = predict(SVMModel,testX'); % prediction's size = 5000*1 (nb_instances*1)
 %% Display data
 disp('Classification error (testing):');
-error =   sqrt(nansum((predictions - testY').^ 2) /nb_test); %  sum((predictions - labels).^ 2);
+error =  70* sqrt(nansum((predictions - testY').^ 2) /nb_test); %  sum((predictions - labels).^ 2);
 disp(error);
