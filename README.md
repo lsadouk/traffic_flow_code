@@ -28,10 +28,11 @@ You can choose to train the CNN :
 - the ARIMA by y going into 'traffic_flow_code_ARIMA/' directory and running the file 'proj_traffic_flow_prediction_ARIMA.m'
 - the HW-ExpS by y going into 'traffic_flow_code_HW-exp/' directory and running the file 'main.m'
 
-<h2>Example for training and testing CNN model : </h2>
+<h2>Examples for training and testing our models : </h2>
+<h3>Exampe of training and testing the CNN model:</h3>
 In this example, we want to predict the exact speed at 15-min forecasting (i.e., using regression) by training the CNN based on the probabilistic loss function. 
 
-The default data is the 'US101-North District 7' freeway from september 1 to september 30 (2017) from 6AM to 8:55PM. 3/4th of the data is used for training and 1/4th is for testing.
+The default data is the 'US101-North District 7' freeway (i.e., H101-North-D7) from september 1 to september 30 (2017) from 6AM to 8:55PM. 3/4th of the data is used for training and 1/4th is for testing.
 
 The measure of performance is RMSE which gives the error in miles/hour.
 
@@ -51,4 +52,19 @@ The code will:
 - output the lowest test RMSE.
 - display the weights of the 1st convolutional layer filters.
 
+<h3>Exampe of testing the DBN model:</h3>
+In this example, we want to predict the exact speed for network points of 'I5_North_D7' freeway at 15-min forecasting by testing/applying a DBN that was previously trained based on the probabilistic loss function using data of 'US101-North District 7' freeway (i.e., H101-North-D7) .
+- Please enter the k-fold (k-1 for training & 1 for testing)_(0 for testing):  0
 
+- Please enter the loss (0)L2 loss, (1)P loss:  1
+
+- Please select the number of days (15, 21, 27, 30 or 59):  30
+
+- Enter prediction point:  3
+
+- Please select the testing freeway: H101_North_D7 / I5_North_D7 / I5_South_D7 / I5_North_D11 / I450_North_D7 / I210_West_D7: I5_North_D7
+
+- Please select the input freeway for training: H101_North_D7 / I5_North_D7 / I5_South_D7 / I5_North_D11 / I450_North_D7 / I210_West_D7: H101_North_D7
+
+The displayed result is :
+Classification error (testing):     0.0790
