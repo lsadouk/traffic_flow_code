@@ -13,15 +13,23 @@ This readme is a brief overview and contains details for setting up and running 
 2. To run TFF with PLF using Convolutional Neural Networks (CNN), the MatConvNet Toolbox has already been downloaded and compiled for you. So, you don't need to install and compile MatConvNet. But, if you have your own version of MatConvNet, you can do so by replacing the MatConvNet folder within 'traffic_flow_code_CNN/' directory  by your own.
 
 <h2>Usage</h2>
-There are several two use cases for TFF with PLF:
+There are several use cases for TFF with PLF:
 
-1. You can train and test Convolutional Neural Networks (CNNs) by going into 'traffic_flow_code_CNN/' directory and running the file 'proj_traffic_flow_prediction_10wStr.m'
-You can choose to train the CNN :
+1. You can train and test Convolutional Neural Networks (CNNs) by going into 'traffic_flow_code_CNN/' directory and running the file 'proj_traffic_flow_prediction_10wStr.m'.
+
+You can choose to train and test the CNN (<b>see example 1 below </b>):
 - among different prediction time interval (5-, 10-, 15-, and 20-min forecasting)
 - with either the L2 Loss function (lambda=0) or the probabilistic loss function (lambda=1)
-- on different networks (freeways) such as H101_North_D7 / I5_North_D7 / I5_South_D7 / I5_North_D11 / I450_North_D7 / I210_West_D7 
+- on one of the following networks (freeways): H101_North_D7 / I5_North_D7 / I5_South_D7 / I5_North_D11 / I450_North_D7 / I210_West_D7 
 
-2. You can train and test Deep Belief Networks (DBNs) by going into 'traffic_flow_code_DBN/examples/' directory and running the file 'proj_traffic_flow_prediction_DBN.m'
+2. You can choose to test the CNN using a an available CNN which was already trained using traffic data of 'H101_North_D7' freeway (<b>see example 3 below</b>)
+If you wich to test using a CNN trained on another network (freeway), you first train the CNN using the desired network (use case 1) then call it for testing (use case 2).
+
+3. You can train and test Deep Belief Networks (DBNs) by going into 'traffic_flow_code_DBN/examples/' directory and running the file 'proj_traffic_flow_prediction_DBN.m'
+
+4. You can choose to test the DBN using a an available DBN which was already trained using traffic data of 'H101_North_D7' freeway (<b>see example 2 below</b>).
+If you wich to test using a DBN trained on another network (freeway), you first train the CNN using the desired network (use case 3) then call it for testing (use case 4).
+
 
 <b>PS. If you want to compare CNN and DBN performances with existant methods, you can try :</b>
 - the Support Vector Machin (SVM) by going into 'traffic_flow_code_SVM/' directory and running the file 'proj_traffic_flow_prediction_SVM.m'
@@ -70,19 +78,29 @@ To do so, follow these steps:
 
 - Please select the input freeway used for training: H101_North_D7 / I5_North_D7 / I5_South_D7 / I5_North_D11 / I450_North_D7 / I210_West_D7: H101_North_D7
 
-The displayed result is :
-Classification error (testing):     0.0790
+<b>The displayed result is :</b>
+Classification error (testing):     5.53
 
 <h3>3. Example of testing the CNN model:</h3>
-In this example, we want to predict the exact speed for network points of 'I5_North_D7' freeway at 15-min forecasting by testing/applying a CNN which was previously trained based on the probabilistic loss function using data of 'US101-North District 7' freeway (i.e., H101-North-D7) .
+In this example, we want to predict the exact speed for network points of 'I5_North_D11' freeway at 15-min forecasting by testing/applying a CNN which was previously trained based on the probabilistic loss function using data of 'US101-North District 7' freeway (i.e., H101-North-D7) .
 
 To do so, follow these steps:
+
 1. Go to 'traffic_flow_code_CNN' directory and run the file 'proj_traffic_flow_prediction_10wStr.m'.
 2. select the following:
-Please forecasting for which you wish to predict speed (1)for 5-min, (2)for 10-min, (3)...): 3
-Please select the prediction type: (c)classification / (r)regression  r
-Please enter the loss (0)L2 loss, (1)P loss:  1
-Please select the freeway used for training: H101_North_D7 / I5_North_D7 / I5_South_D7 / I5_North_D11 / I450_North_D7 / I210_West_D7 H101_North_D7
-Please enter the k-fold (k-1 for training & 1 for testing)_(0 for testing):  0
-Please select the testing freeway: H101_North_D7 / I5_North_D7 / I5_South_D7 / I5_North_D11 / I450_North_D7 / I210_West_D7: I5_North_D11
-Please select the number of days (15, 21, 27, 30 or 59):  30
+- Please forecasting for which you wish to predict speed (1)for 5-min, (2)for 10-min, (3)...): 3
+
+- Please select the prediction type: (c)classification / (r)regression  r
+
+- Please enter the loss (0)L2 loss, (1)P loss:  1
+
+- Please select the freeway used for training: H101_North_D7 / I5_North_D7 / I5_South_D7 / I5_North_D11 / I450_North_D7 / I210_West_D7 H101_North_D7
+
+- Please enter the k-fold (k-1 for training & 1 for testing)_(0 for testing):  0
+
+- Please select the testing freeway: H101_North_D7 / I5_North_D7 / I5_South_D7 / I5_North_D11 / I450_North_D7 / I210_West_D7: I5_North_D11
+
+- Please select the number of days (15, 21, 27, 30 or 59):  30
+
+<b>The displayed result is :</b>
+Lowest validation error is 3.57 in epoch 1
