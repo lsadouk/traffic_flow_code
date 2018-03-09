@@ -9,7 +9,7 @@ function imdb = setup_data(opts, kfold, filename,next_pred_pt)
 %                                       (e) #days (27)
 
 %% 1. Load scenes/frames/images
-ScenesPath = strcat('../../traffic_flow_code/preprocessing/',next_pred_pt, '_point_estimate/'); %'data/preprocessed_data/';
+ScenesPath = strcat('../../traffic_flow_code_CNN/preprocessing/',next_pred_pt, '_point_estimate/'); %'data/preprocessed_data/';
 %filename = 'traffic_images_H101_North_D7_59days'; % 'traffic_images_H101_South_D7_15days_realLabel for testing  
 % 'traffic_images_H101_North_D7_27days_realLabel.mat'  H101_North_D7 for 
 % training and testing
