@@ -154,6 +154,7 @@ opts.freezeDropout = false ;
 opts.accumulate = false ;
 opts.cudnn = true ;
 opts.backPropDepth = +inf ;
+opts.lambda = 0;
 
 opts = vl_argparse(opts, varargin);
 
@@ -223,7 +224,8 @@ for i=1:n
     case 'softmaxloss'
       res(i+1).x = vl_nnsoftmaxloss(res(i).x, l.class) ;
     case 'euclideanloss'
-      res(i+1).x = euclideanloss(res(i).x, l.class);
+      lambda = opts.lambda;
+      res(i+1).x = euclideanloss(res(i).x, l.class, lambda);
     case 'relu'
       if isfield(l, 'leak'), leak = {'leak', l.leak} ; else leak = {} ; end
       res(i+1).x = vl_nnrelu(res(i).x,[],leak{:}) ;
@@ -363,7 +365,8 @@ if doder
       case 'softmaxloss'
         res(i).dzdx = vl_nnsoftmaxloss(res(i).x, l.class, res(i+1).dzdx) ;
       case 'euclideanloss'
-        res(i).dzdx = euclideanloss(res(i).x, l.class, res(i+1).dzdx);
+        lambda = opts.lambda;
+        res(i).dzdx = euclideanloss(res(i).x, l.class, lambda, res(i+1).dzdx);
       case 'relu'
         if isfield(l, 'leak'), leak = {'leak', l.leak} ; else leak = {} ; end
         if ~isempty(res(i).x)

@@ -39,7 +39,8 @@ opts.errorFunction = 'multiclass' ;
 opts.errorLabels = {} ;
 opts.plotDiagnostics = false ;
 opts.memoryMapFile = fullfile(tempdir, 'matconvnet.bin') ;
-opts.prediction_type = 'c';
+opts.prediction_type = 'r';
+opts.lambda = 0; % by default L2 loss function (and not probabilistic loss function)
 opts = vl_argparse(opts, varargin) ;
 
 if ~exist(opts.expDir, 'dir'), mkdir(opts.expDir) ; end
@@ -318,7 +319,8 @@ for t=1:opts.batchSize:numel(subset)
                       'conserveMemory', opts.conserveMemory, ...
                       'backPropDepth', opts.backPropDepth, ...
                       'sync', opts.sync, ...
-                      'cudnn', opts.cudnn) ;
+                      'cudnn', opts.cudnn, ...
+                      'lambda', opts.lambda) ;
 
 %     % accumulate training errors
 %     error = sum([error, [...
