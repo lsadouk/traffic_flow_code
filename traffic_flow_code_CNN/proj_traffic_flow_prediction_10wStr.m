@@ -28,7 +28,7 @@ nb_days =input('Please select the number of days (15, 21, 27, 30 or 59):  ','s')
 % lambda=0 for L2 loss and lambda=1 for probabilistic loss function
 opts.lambda =input('Please enter the loss (0)L2 loss, (1)P loss:  ');
 
-freeway = input('Please select the freeway: H101_North_D7 / H101_South_D7 / I5_North_D7 / I5_South_D7 / I5_North_D11 / I450_North_D7 / I210_West_D7 ','s');
+freeway = input('Please select the freeway: H101_North_D7 / I5_North_D7 / I5_South_D7 / I5_North_D11 / I450_North_D7 / I210_West_D7 ','s');
 % --------------------------------------------------------------------
 %                                                         Prepare data
 % --------------------------------------------------------------------
