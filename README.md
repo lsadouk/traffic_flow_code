@@ -94,7 +94,7 @@ To do so, follow these steps:
 
 - Please enter the loss (0)L2 loss, (1)P loss:  1
 
-- Please select the freeway used for training: H101_North_D7 / I5_North_D7 / I5_South_D7 / I5_North_D11 / I450_North_D7 / I210_West_D7 H101_North_D7
+- Please select the freeway used for training: H101_North_D7 / I5_North_D7 / I5_South_D7 / I5_North_D11 / I450_North_D7 / I210_West_D7: H101_North_D7
 
 - Please enter the k-fold (k-1 for training & 1 for testing)_(0 for testing):  0
 
@@ -103,4 +103,4 @@ To do so, follow these steps:
 - Please select the number of days (15, 21, 27, 30 or 59):  30
 
 <b>The displayed result is :</b>
-Lowest validation error is 3.57 in epoch 1
+Lowest validation error is 3.821451 in epoch 1
